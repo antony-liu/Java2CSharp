@@ -1,6 +1,6 @@
 # 简介
 
-该工具是一个将POI Java代码转换成C#代码的转换器。基于项目[Java2CSharp](https://github.com/javaparser/javaparser)改进而来，提供了一个WPF界面。
+该工具是一个将POI Java代码转换成C#代码的转换器。基于项目[Java2CSharp](https://github.com/nissl-lab/JavaToCSharp)改进而来，并提供了WPF界面。
 
 ## 使用说明
 
