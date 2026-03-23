@@ -1,0 +1,86 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>Resources\csharp2.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>1701;1702;8600;8602;8604</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn>1701;1702;8600;8602;8604</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\close.png" />
+    <None Remove="Resources\create-course.png" />
+    <None Remove="Resources\csharp-icon.png" />
+    <None Remove="Resources\csharp.ico" />
+    <None Remove="Resources\csharp.png" />
+    <None Remove="Resources\exit.png" />
+    <None Remove="Resources\file-close.png" />
+    <None Remove="Resources\open.png" />
+    <None Remove="Resources\save.png" />
+    <None Remove="Resources\xmldoc.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\csharp2.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\close.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\create-course.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\csharp-icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\csharp.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\exit.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\file-close.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\open.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\save.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\xmldoc.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Antlr3.Runtime" Version="3.5.1" />
+    <PackageReference Include="AvalonEdit" Version="6.3.0.90" />
+    <PackageReference Include="Extended.Wpf.Toolkit" Version="4.6.0" />
+    <PackageReference Include="HandyControl" Version="3.5.1" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.60" />
+    <PackageReference Include="System.Security.Cryptography.X509Certificates" Version="4.3.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="App.config">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="config.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="rules.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

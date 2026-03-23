@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<rules>
+  <package>
+    <rule action="replace" text="org.apache.poi" newtext="NPOI"></rule>
+    <rule action="replace" text="hssf." newtext="HSSF."></rule>
+    <rule action="replace" text="hwpf." newtext="HWPF."></rule>
+      <rule action="replace" text=".xssf" newtext=".XSSF"></rule>
+      <rule action="replace" text=".xddf" newtext=".XDDF"></rule>
+      <rule action="replace" text=".text" newtext=".Text"></rule>
+      <rule action="replace" text=".eventusermodel" newtext=".EventUserModel"></rule>
+      <rule action="replace" text=".openxml4j.opc" newtext=".OpenXml4Net.OPC"></rule>
+      <rule action="replace" text=".openxml4j" newtext=".OpenXml4Net"></rule>
+    <rule action="replace" text=".usermodel" newtext=".UserModel"></rule>
+    <rule action="replace" text=";" newtext=""></rule>
+    <rule action="replace" text="ss." newtext="SS."></rule>
+  </package>
+  <import>
+    <rule action="discard"  text ="java."></rule>
+    <rule action="discard" text ="javax."></rule>
+    <rule action="discard" text ="junit."></rule>
+      <rule action="discard" text ="org.xml."></rule>
+      <rule action="discard" text ="org.apache.xmlbeans."></rule>
+    <rule action="replace" text="org.apache.poi." newtext="NPOI."></rule>
+    <rule action="replace" text=".hssf" newtext=".HSSF"></rule>
+      <rule action="replace" text=".xssf" newtext=".XSSF"></rule>
+      <rule action="replace" text=".xddf" newtext=".XDDF"></rule>
+      <rule action="replace" text=".text" newtext=".Text"></rule>
+      <rule action="replace" text=".ooxml" newtext=".OOXML"></rule>
+    <rule action="replace" text="hwpf." newtext="HWPF."></rule>
+    <rule action="replace" text=".usermodel" newtext=".UserModel"></rule>
+      <rule action="replace" text=".eventusermodel" newtext=".EventUserModel"></rule>
+    <rule action="replace" text="ss." newtext="SS."></rule>
+      <rule action="replace" text=".openxml4j.opc" newtext=".OpenXml4Net.OPC"></rule>
+      <rule action="replace" text=".openxml4j" newtext=".OpenXml4Net"></rule>
+      <rule action="replace" text="org.openxmlformats.schemas.drawingml.x2006.main" newtext="NPOI.OpenXmlFormats.Dml"></rule>
+      <rule action="replace" text="org.openxmlformats.schemas.drawingml.x2006.chart" newtext="NPOI.OpenXmlFormats.Dml.Chart"></rule>
+      <rule action="replace" text="org.openxmlformats.schemas.drawingml.x2006" newtext="NPOI.OpenXmlFormats.Dml"></rule>
+      <rule action="replace" text="org.openxmlformats.schemas.spreadsheetml.x2006.main" newtext="NPOI.OpenXmlFormats.Spreadsheet"></rule>
+  </import>
+  <method>
+    <rule action="replace" text="assertEquals" newtext="Assert.AreEqual"></rule>
+    <rule action="replace" text="assertFalse" newtext="Assert.IsFalse"></rule>
+    <rule action="replace" text="fail" newtext="Assert.Fail"></rule>
+    <rule action="getter" text="\.[gG]et([a-zA-Z0-9_]+)\(\)" newtext=".$1"></rule>
+    <rule action="setter" text="\.[sS]et([a-zA-Z0-9_]+)\(([^,]+?)\)" newtext=".$1 = \($2\)"></rule>
+  </method>
+    <identifier>
+        <rule action="replace" text="(\s+|\()String\s" newtext="$1string "></rule>
+        <rule action="replace" text="Object" newtext="object"></rule>
+    </identifier>
+</rules>

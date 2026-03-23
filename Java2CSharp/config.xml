@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<config>
+    <folders>
+        <folder name="base" source="D:\work\poi\poi.git" target="D:\work\npoi\"></folder>
+        <folder name="poi" source="src\java\org\apache\poi\" target="main\"></folder>
+        <folder name="ooxml" source="src\ooxml\java\org\apache\poi\" target="ooxml\"></folder>
+        <folder name="opc" source="src\ooxml\java\org\apache\poi\openxml4j\" target="openxml4Net\"></folder>
+        <folder name="scratchpad" source="src\scratchpad\src\org\apache\poi\" target="scratchpad\"></folder>
+        <folder name="poi-test" source="src\testcases\org\apache\poi\" target="testcases\main\"></folder>
+        <folder name="ooxml-test" source="src\ooxml\testcases\org\apache\poi\" target="testcases\ooxml\"></folder>
+        <folder name="opc-test" source="src\ooxml\testcases\org\apache\poi\openxml4j\" target="testcases\openxml4net\"></folder>
+        <folder name="scratchpad-test" source="src\scratchpad\testcases\org\apache\poi" target="testcases\scratchpad\"></folder>
+    </folders>
+</config>

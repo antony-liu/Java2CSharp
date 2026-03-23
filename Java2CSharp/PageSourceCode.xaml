@@ -1,0 +1,61 @@
+﻿<Page x:Class="Java2CSharp.PageSourceCode"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Java2CSharp"
+      xmlns:system="clr-namespace:System;assembly=System.Runtime"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="SourceCode">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <avalonEdit:TextEditor Grid.Column="0" Margin="0 0 5 0"
+            xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
+            Name="edtSourceCode"
+            ScrollViewer.ScrollChanged="edtSourceCode_ScrollChanged"
+            VerticalScrollBarVisibility="Visible"
+            LineNumbersForeground="Black"
+            ShowLineNumbers="True"
+            FontFamily="Consolas"
+            FontSize="10pt">
+            <avalonEdit:TextEditor.Options>
+                <avalonEdit:TextEditorOptions ShowSpaces="True" 
+                                              WordWrapIndentation="4"
+                                              InheritWordWrapIndentation="true">
+                    <avalonEdit:TextEditorOptions.ColumnRulerPosition>
+                        <system:Int32>10</system:Int32>
+                    </avalonEdit:TextEditorOptions.ColumnRulerPosition>
+                </avalonEdit:TextEditorOptions>
+            </avalonEdit:TextEditor.Options>
+        </avalonEdit:TextEditor>
+        <GridSplitter Background="LightGray"
+                      Width="5" VerticalAlignment="Stretch"
+                      ResizeDirection="Columns" HorizontalAlignment="Right" />
+        <avalonEdit:TextEditor 
+            Grid.Column="1"
+            xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
+            Name="edtTargetCode"
+            ScrollViewer.ScrollChanged="edtTargetCode_ScrollChanged"
+            VerticalScrollBarVisibility="Visible"
+            LineNumbersForeground="Black"
+            ShowLineNumbers="True"
+            FontFamily="Consolas"
+            FontSize="10pt">
+            <avalonEdit:TextEditor.Options>
+                <avalonEdit:TextEditorOptions ShowSpaces="True" 
+                                              WordWrapIndentation="4"
+                                              InheritWordWrapIndentation="true">
+                    <avalonEdit:TextEditorOptions.ColumnRulerPosition>
+                        <system:Int32>10</system:Int32>
+                    </avalonEdit:TextEditorOptions.ColumnRulerPosition>
+                </avalonEdit:TextEditorOptions>
+            </avalonEdit:TextEditor.Options>
+        </avalonEdit:TextEditor>
+    </Grid>
+</Page>

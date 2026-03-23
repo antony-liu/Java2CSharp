@@ -1,0 +1,152 @@
+﻿<hc:Window x:Class="Java2CSharp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:avalon="http://schemas.xceed.com/wpf/xaml/avalondock"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        xmlns:local="clr-namespace:Java2CSharp"
+        mc:Ignorable="d"
+        Title="Java2CSharp" Height="450" Width="800" WindowState="Maximized" WindowStartupLocation="CenterScreen" Icon="/Resources/csharp2.ico">
+    <Window.Resources>
+        <!--定义命令-->
+        <RoutedUICommand x:Key="cmdFileOpen" />
+        <RoutedUICommand x:Key="cmdFileClose" />
+        <RoutedUICommand x:Key="cmdFileExit" />
+        <RoutedUICommand x:Key="cmdFileNew" />
+        <RoutedUICommand x:Key="cmdFileSave" />
+        <RoutedUICommand x:Key="cmdConvert" />
+        <RoutedUICommand x:Key="cmdConvertComment" />
+        <RoutedUICommand x:Key="cmdFolderComment" />
+        <RoutedUICommand x:Key="cmdLicense" />
+        <RoutedUICommand x:Key="cmdConvertPOI" />
+        <RoutedUICommand x:Key="cmdConvertOOXML" />
+        <RoutedUICommand x:Key="cmdConvertOPC" />
+        <RoutedUICommand x:Key="cmdConvertScratchpad" />
+        <RoutedUICommand x:Key="cmdConvertPOITest" />
+        <RoutedUICommand x:Key="cmdConvertOOXMLTest" />
+        <RoutedUICommand x:Key="cmdConvertOPCTest" />
+        <RoutedUICommand x:Key="cmdConvertScratchpadTest" />
+    </Window.Resources>
+    <!--输入绑定  Key   Mouse-->
+    <Window.InputBindings>
+        <KeyBinding Command="{StaticResource cmdFileOpen}" Gesture="Ctrl+O" />
+        <KeyBinding Command="{StaticResource cmdFileClose}" Gesture="Ctrl+C" />
+        <KeyBinding Command="{StaticResource cmdFileExit}" Gesture="Alt+F4" />
+        <KeyBinding Command="{StaticResource cmdFileNew}" Gesture="Ctrl+N" />
+        <KeyBinding Command="{StaticResource cmdFileSave}" Gesture="Ctrl+S" />
+        <KeyBinding Command="{StaticResource cmdConvert}" Gesture="Ctrl+Shift+C" />
+        <KeyBinding Command="{StaticResource cmdConvertComment}" Gesture="Ctrl+Shift+D" />
+        <KeyBinding Command="{StaticResource cmdConvertPOI}" Gesture="Ctrl+Shift+P" CommandParameter="poi" />
+        <KeyBinding Command="{StaticResource cmdConvertOOXML}" Gesture="Ctrl+Shift+O" CommandParameter="ooxml" />
+        <KeyBinding Command="{StaticResource cmdConvertOPC}" Gesture="Ctrl+Shift+C" CommandParameter="opc" />
+        <KeyBinding Command="{StaticResource cmdConvertScratchpad}" Gesture="Ctrl+Shift+S" CommandParameter="scratchpad" />
+        <KeyBinding Command="{StaticResource cmdConvertPOITest}" Gesture="Ctrl+Shift+Q" CommandParameter="poi-test" />
+        <KeyBinding Command="{StaticResource cmdConvertOOXMLTest}" Gesture="Ctrl+Shift+W" CommandParameter="ooxml-test" />
+        <KeyBinding Command="{StaticResource cmdConvertOPCTest}" Gesture="Ctrl+Shift+E" CommandParameter="opc-test" />
+        <KeyBinding Command="{StaticResource cmdConvertScratchpadTest}" Gesture="Ctrl+Shift+R" CommandParameter="scratchpad-test" />
+    </Window.InputBindings>
+    <!--将命令与处理程序关联起来-->
+    <Window.CommandBindings>
+        <CommandBinding Command="{StaticResource cmdFileOpen}" Executed="FileOpen_Click"/>
+        <CommandBinding Command="{StaticResource cmdFileClose}" Executed="FileClose_Click"/>
+        <CommandBinding Command="{StaticResource cmdFileExit}" Executed="FileExit_Click"/>
+        <CommandBinding Command="{StaticResource cmdFileNew}" Executed="FileNew_Click"/>
+        <CommandBinding Command="{StaticResource cmdFileSave}" Executed="FileSave_Click"/>
+        <CommandBinding Command="{StaticResource cmdConvert}" Executed="Convert_Click"/>
+        <CommandBinding Command="{StaticResource cmdConvertComment}" Executed="Convert_Click"/>
+        <CommandBinding Command="{StaticResource cmdFolderComment}" Executed="Convert_FolderComment"/>
+        <CommandBinding Command="{StaticResource cmdLicense}" Executed="FileLicenseText_Click" />
+        <CommandBinding Command="{StaticResource cmdConvertPOI}" Executed="OpenConvert_Click"/>
+        <CommandBinding Command="{StaticResource cmdConvertOOXML}" Executed="OpenConvert_Click"/>
+        <CommandBinding Command="{StaticResource cmdConvertOPC}" Executed="OpenConvert_Click"/>
+        <CommandBinding Command="{StaticResource cmdConvertScratchpad}" Executed="OpenConvert_Click"/>
+        <CommandBinding Command="{StaticResource cmdConvertPOITest}" Executed="OpenConvert_Click"/>
+        <CommandBinding Command="{StaticResource cmdConvertOOXMLTest}" Executed="OpenConvert_Click"/>
+        <CommandBinding Command="{StaticResource cmdConvertOPCTest}" Executed="OpenConvert_Click"/>
+        <CommandBinding Command="{StaticResource cmdConvertScratchpadTest}" Executed="OpenConvert_Click"/>
+    </Window.CommandBindings>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Menu IsMainMenu="True" Name="Menu1"  Grid.Row="0">
+            <MenuItem Header="文件(_F)">
+                <MenuItem Header="新建(_N)" InputGestureText="Ctrl+N" Command="{StaticResource cmdFileNew}" >
+                    <MenuItem.Icon>
+                        <Image Source="/Resources/create-course.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="打开并转换" >
+                    <MenuItem Header="POI" InputGestureText="Ctrl+Shift+P" 
+                          Command="{StaticResource cmdConvertPOI}" CommandParameter="poi"/>
+                    <MenuItem Header="OOXML" InputGestureText="Ctrl+Shift+O" 
+                          Command="{StaticResource cmdConvertOOXML}" CommandParameter="ooxml"/>
+                    <MenuItem Header="OPC" InputGestureText="Ctrl+Shift+C" 
+                          Command="{StaticResource cmdConvertOPC}" CommandParameter="opc"/>
+                    <MenuItem Header="Scratchpad" InputGestureText="Ctrl+Shift+S" 
+                          Command="{StaticResource cmdConvertScratchpad}" CommandParameter="scratchpad"/>
+                    <Separator />
+                    <MenuItem Header="POI Test" InputGestureText="Ctrl+Shift+Q" 
+                          Command="{StaticResource cmdConvertPOI}" CommandParameter="poi-test"/>
+                    <MenuItem Header="OOXML Test" InputGestureText="Ctrl+Shift+W" 
+                          Command="{StaticResource cmdConvertOOXML}" CommandParameter="ooxml-test"/>
+                    <MenuItem Header="OPC Test" InputGestureText="Ctrl+Shift+E" 
+                          Command="{StaticResource cmdConvertOPC}" CommandParameter="opc-test"/>
+                    <MenuItem Header="Scratchpad Test" InputGestureText="Ctrl+Shift+R" 
+                          Command="{StaticResource cmdConvertScratchpad}" CommandParameter="scratchpad-test"/>
+                </MenuItem>
+                <MenuItem Header="保存(_N)" InputGestureText="Ctrl+S" Command="{StaticResource cmdFileSave}" >
+                    <MenuItem.Icon>
+                        <Image Source="/Resources/save.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="关闭(_C)" InputGestureText="Ctrl+C" Command="{StaticResource cmdFileClose}">
+                    <MenuItem.Icon>
+                        <Image Source="/Resources/file-close.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator />
+                <MenuItem Header="退出(_X)" InputGestureText="Alt+F4" Command="{StaticResource cmdFileExit}" >
+                    <MenuItem.Icon>
+                        <Image Source="/Resources/exit.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="转换(_C)">
+                <MenuItem Header="Java to C#" InputGestureText="Ctrl+Shift+C" Command="{StaticResource cmdConvert}" CommandParameter="java">
+                    <MenuItem.Icon>
+                        <Image Source="/Resources/csharp.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="JsDoc to xml comment" InputGestureText="Ctrl+Shift+D" Command="{StaticResource cmdConvertComment}" CommandParameter="comment">
+                    <MenuItem.Icon>
+                        <Image Source="/Resources/xmldoc.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Convert JsDoc in C# file" InputGestureText="Ctrl+Shift+F" Command="{StaticResource cmdFolderComment}" CommandParameter="foldercomment">
+                </MenuItem>
+                <MenuItem Header="License text" Command="{StaticResource cmdLicense}" CommandParameter="license">
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        <avalon:DockingManager x:Name="dockingManager"  Grid.Row="1">
+            <avalon:LayoutRoot>
+                <avalon:LayoutPanel Orientation="Horizontal">
+                    <avalon:LayoutDocumentPane x:Name="layOutPane">
+                    </avalon:LayoutDocumentPane>
+                </avalon:LayoutPanel>
+                <avalon:LayoutRoot.LeftSide>
+                    <avalon:LayoutAnchorSide>
+                        <avalon:LayoutAnchorGroup>
+                            <avalon:LayoutAnchorable  Title="Autohidden Content">
+                                <TextBox />
+                            </avalon:LayoutAnchorable>
+                        </avalon:LayoutAnchorGroup>
+                    </avalon:LayoutAnchorSide>
+                </avalon:LayoutRoot.LeftSide>
+            </avalon:LayoutRoot>
+        </avalon:DockingManager>
+    </Grid>
+</hc:Window>
